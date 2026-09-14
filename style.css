@@ -1,0 +1,114 @@
+/* ====== 0. Сброс отступов у всех элементов ====== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* ====== 1. Общие настройки страницы ====== */
+html, body {
+    background-color: #ffffff;           /* белый фон */
+    color: #000000;                      /* чёрный текст */
+    font-family: 'Marck Script', cursive;/* шрифт "как пером" */
+    font-size: 22px;                     /* размер текста */
+    min-height: 100vh;
+}
+
+/* Весь сайт — это вертикальный "столбик": сверху контент, снизу чёрная полоса */
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+/* ====== 2. Основная часть (текст + фото) ====== */
+.content {
+    flex: 1;                          /* растягивается на всё свободное место */
+    display: grid;
+    grid-template-columns: 30% 70%;   /* левая колонка 30%, правая 70% */
+    align-items: center;
+}
+
+/* Правая колонка — текст */
+.about {
+    padding: 10px;
+    line-height: 1.2;
+    font-size: 40px;
+    margin-bottom: 0px
+}
+
+.intro {
+    /* сюда можно дописывать свои правила, например font-size: 26px; */
+    margin-bottom: 50px
+}
+
+.zag{
+   font-size: 100px;
+   text-align: center; 
+   line-height: 1.2; 
+}
+
+/* Левая колонка — фото */
+.photo {
+    display: flex;
+    justify-content: center;    /* центрируем по горизонтали */
+    align-items: center;        /* центрируем по вертикали */
+    padding: 15px;
+    height: 100%;
+}
+
+/* Сама картинка: почти на всю высоту экрана, "чуть не доходя до низа" */
+.photo img {
+    height: 88vh;               /* 88% высоты экрана */
+    width: auto;
+    max-width: 100%;
+    object-fit: cover;          /* не растягивается, обрезается аккуратно */
+    border-radius: 14px;        /* скруглённые уголки */
+    margin-top: 100px;
+}
+
+/* ====== 3. Чёрный прямоугольник с контактами ====== */
+.contacts {
+    background-color: #000000;   /* чёрный фон */
+    color: #ffffff;              /* белый текст */
+    padding: 20px 40px;
+    display: flex;
+    align-items: center;
+    gap: 25px;                   /* расстояние между элементами */
+    font-family: Arial, sans-serif; /* для контактов — обычный шрифт, чтобы читалось */
+    font-size: 16px;
+}
+
+/* Иконки приложений */
+.contacts .icon-max img {
+    width: 45px;
+    height: 32px;
+    display: block;
+    transition: transform 0.2s ease;  /* плавное увеличение при наведении */
+}
+
+.contacts .icon-telegram img {
+    width: 32px;
+    height: 32px;
+    display: block;
+    transition: transform 0.2s ease;  /* плавное увеличение при наведении */
+}
+
+.contacts .icon-max:hover img {
+    transform: scale(1.3);  /* плавное увеличение при наведении */
+}
+
+.contacts .icon-telegram:hover img {
+    transform: scale(1.3);  /* плавное увеличение при наведении */
+}
+
+.contacts .phone img{
+    width: 32px;
+    height: 32px;
+    display: block;
+}
+
+.contacts .nickname {
+    color: #ffffff;
+    font-size: 20px;      /* ← если тут стоит 8px — вот причина мелкого текста */
+    white-space: nowrap;  /* чтобы телефон не переносился */
+}
